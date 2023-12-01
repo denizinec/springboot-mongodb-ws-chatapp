@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Chat Application</title>
+</head>
+<body>
+
+
+
+<div class="user-form" id="username-page">
+    <h2>Giriş Yap</h2>
+    <form id="usernameForm">
+        <label for="nickname">Kullanıcı Adı:</label>
+        <input type="text" id="nickname" name="nickname" required>
+
+        <label for="fullname">İsim Soyisim:</label>
+        <input type="text" id="fullname" name="realname" required>
+
+        <button type="submit">Giriş</button>
+    </form>
+</div>
+
+
+ <div class="chat-container hidden" id="chat-page">
+    <div class="users-list">
+        <div class="users-list-container">
+            <h2>Online Kullanıcılar</h2>
+            <ul id="connectedUsers">
+            </ul>
+        </div>
+        <div>
+            <p id="connected-user-fullname"></p>
+            <a class="logout" href="javascript:void(0)" id="logout">Çıkış Yap</a>
+        </div>
+    </div>
+
+    <div class="chat-area">
+        <div class="chat-area" id="chat-messages">
+        </div>
+
+        <form id="messageForm" name="messageForm" class="hidden">
+            <div class="message-input">
+                <input autocomplete="off" type="text" id="message" placeholder="Mesajınızı giriniz...">
+                <button>Gönder</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

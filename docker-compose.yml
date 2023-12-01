@@ -1,0 +1,24 @@
+services:
+  mongodb:
+    image: mongo
+    container_name: mongo_db
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo:/data
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=deniz
+      - MONGO_INITDB_ROOT_PASSWORD=deniz
+  mongo-express:
+    image: mongo-express
+    container_name: mongo_express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=deniz
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=deniz
+      - ME_CONFIG_MONGODB_SERVER=mongo_db
+volumes:
+  mongo: {}
